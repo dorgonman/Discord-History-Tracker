@@ -19,7 +19,28 @@ document.addEventListener("DOMContentLoaded", () => {
     
     return true;
   });
-  
+
+
+  var xmlhttp = new XMLHttpRequest();
+  //var url = 'http://horizon-studio.net/ue4/discord_history_tracker/dht.txt';
+  //var url = 'http://mathiasbynens.be/demo/ip';
+  var url = 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd';
+
+  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  //var url = 'http://horizon-studio.net/ue4/discord_history_tracker/dht.json';
+  //http://horizon-studio.net/ue4/discord_history_tracker/dht.json
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = processRequest;
+  xhr.open('GET', url);
+  xhr.send();
+ // xhr.addEventListener("readystatechange", processRequest, false);
+
+  function processRequest(e) {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        // time to partay!!!
+          alert('xxxxxxxxxxx');
+    }
+  }
   GUI.onOptionMessagesPerPageChanged(() => {
     STATE.setMessagesPerPage(GUI.getOptionMessagesPerPage());
   });
